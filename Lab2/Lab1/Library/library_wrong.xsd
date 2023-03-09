@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="library"
+           targetNamespace="library">
+    <xs:element name="library" type="libraryType"/>
+    <xs:complexType name="namesType">
+        <xs:sequence>
+            <xs:element name="name" maxOccurs="unbounded" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="authorType">
+        <xs:sequence>
+            <xs:element type="namesType" name="names"/>
+            <xs:element name="surname">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="authorsType">
+        <xs:sequence>
+            <xs:element type="authorType" name="author" maxOccurs="1" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="bookType">
+        <xs:sequence>
+            <xs:element name="title">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="year">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="language">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element type="authorsType" name="authors"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="libraryType">
+        <xs:sequence>
+            <xs:element type="bookType" name="book" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

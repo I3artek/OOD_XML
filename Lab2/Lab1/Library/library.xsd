@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="library"
+           targetNamespace="library">
+    <xs:element name="library" type="libraryType">
+        <xs:key name="authorKey">
+            <xs:selector xpath="authors/author" />
+            <xs:field xpath="@id" />
+        </xs:key>
+        <xs:keyref name="authorRef" refer="authorKey">
+            <xs:selector xpath="book" />
+            <xs:field xpath="author_id/@id" />
+        </xs:keyref>
+    </xs:element>
+    
+    <xs:complexType name="namesType">
+        <xs:sequence>
+            <xs:element name="name" maxOccurs="unbounded" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="authorType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer" />
+            <xs:element type="namesType" name="names"/>
+            <xs:element name="surname">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="authorsType">
+        <xs:sequence>
+            <xs:element type="authorType" name="author" maxOccurs="unbounded" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="bookType">
+        <xs:sequence>
+            <xs:element name="title">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="3" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="year">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1120" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="language">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="EN" />
+                        <xs:enumeration value="PL" />
+                        <xs:enumeration value="TLH" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="unbounded" name="author_id">
+                    <xs:complexType>
+                        <xs:attribute name="id" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="libraryType">
+        <xs:sequence>
+            <xs:sequence>
+                <xs:element type="bookType" name="book" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+            <xs:element type="authorsType" name="authors" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

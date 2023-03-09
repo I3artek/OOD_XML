@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<library xmlns="library"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="library library.xsd"
+>
+	<book>
+		<title>Redstone Tutorial</title>
+		<year>2023</year>
+		<language>EN</language>
+		<authors>
+			<author>
+				<names>
+					<name>Radoslav</name>
+					<name>Irvin</name>
+				</names>
+				<surname>Jagnijc</surname>
+			</author>
+		</authors>
+	</book>
+	<book>
+		<title>Music Tutorial</title>
+		<year>2021</year>
+		<language>PL</language>
+		<authors>
+			<author>
+				<names>
+					<name>Marek</name>
+				</names>
+				<surname>Pierwszy</surname>
+			</author>
+		</authors>
+	</book>
+	<book>
+		<title>The One Book</title>
+		<year>2005</year>
+		<language>EN</language>
+		<authors>
+			<author>
+				<names>
+					<name>Chester</name>
+				</names>
+				<surname>Jagnijc</surname>
+			</author>
+			<author>
+				<names>
+					<name>Jan</name>
+				</names>
+				<surname>Jagnijc</surname>
+			</author>
+		</authors>
+	</book>
+</library>
