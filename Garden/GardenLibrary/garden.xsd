@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="garden"
+           targetNamespace="garden">
+    <xs:element name="garden" type="gardenType">
+        <xs:key name="color" id="color">
+            <xs:selector xpath="color"/>
+            <xs:field xpath="@name"/>
+        </xs:key>
+    </xs:element>
+    <xs:attributeGroup name="plants_and_insects">
+        <xs:attribute name="latinName">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[A-Z][^ ]* .*"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="color"/>
+    </xs:attributeGroup>
+    <xs:simpleType name="monthType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="January"/>
+            <xs:enumeration value="March"/>
+            <xs:enumeration value="April"/>
+            <xs:enumeration value="May"/>
+            <xs:enumeration value="June"/>
+            <xs:enumeration value="July"/>
+            <xs:enumeration value="August"/>
+            <xs:enumeration value="September"/>
+            <xs:enumeration value="October"/>
+            <xs:enumeration value="November"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="color_value">
+        <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="1" />
+            <xs:minInclusive value="0.0" />
+            <xs:maxInclusive value="1.0" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="colorType">
+        <xs:sequence>
+            <xs:element name="red" type="color_value">
+            </xs:element>
+            <xs:element name="green" type="color_value">
+            </xs:element>
+            <xs:element name="blue" type="color_value">
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="name" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="plantType">
+        <xs:sequence>
+            <xs:element type="monthType" name="month" maxOccurs="unbounded" minOccurs="1">
+            </xs:element>
+        </xs:sequence>
+        <xs:attributeGroup ref="plants_and_insects"/>
+        <xs:attribute type="xs:string" name="name" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="insectType">
+        <xs:sequence>
+            <xs:element type="monthType" name="month" maxOccurs="unbounded" minOccurs="1">
+            </xs:element>
+        </xs:sequence>
+        <xs:attributeGroup ref="plants_and_insects"/>
+        <xs:attribute type="xs:string" name="id" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="gardenType">
+        <xs:sequence>
+            <xs:sequence>
+                <xs:choice maxOccurs="unbounded">
+                    <xs:element type="colorType" name="color" maxOccurs="unbounded" minOccurs="0"/>
+                    <xs:element type="plantType" name="plant" maxOccurs="unbounded" minOccurs="0"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:sequence>
+                <xs:element type="insectType" name="insect" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

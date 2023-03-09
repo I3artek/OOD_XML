@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<garden xmlns="garden"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="garden garden.xsd">
+  <color name="green">
+    <red>0.1</red><green>1.0</green><blue>0.0</blue>
+  </color>
+  <color name="red">
+    <red>1.0</red><green>0.1</green><blue>0.1</blue>
+  </color>
+  <plant latinName="Ribes spicatum Robson" name="currant" color="red">
+    <month>June</month>
+    <month>July</month>
+  </plant>
+  <plant latinName="Phaseolus vulgaris" name="bean" color="green">
+    <month>August</month>
+  </plant>
+  <color name="brown">
+    <red>1.0</red><green>0.8</green><blue>0.1</blue>
+  </color>
+  <plant latinName="Solanum lycopersicum" name="tomato" color="red">
+    <month>August</month>
+  </plant>
+  <insect latinName="Lampronia capitella" color="brown" id="lc">
+    <month>May</month>
+    <month>June</month>
+  </insect>
+  <insect latinName="Trialeurodes vaporariorum" color="green" id="tv">
+    <month>April</month>
+    <month>May</month>
+    <month>June</month>
+    <month>July</month>
+  </insect>
+  <insect latinName="Locusta migratoria" color="brown" id="lm">
+    <month>May</month>
+    <month>June</month>
+    <month>July</month>
+  </insect>
+</garden>

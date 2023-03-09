@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenLibrary", "GardenLibrary\GardenLibrary.csproj", "{53530104-3509-4E9F-A695-E32722F77DE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenConsole", "GardenConsole\GardenConsole.csproj", "{15035C96-F74E-42EE-97FE-F2079065C268}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53530104-3509-4E9F-A695-E32722F77DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53530104-3509-4E9F-A695-E32722F77DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53530104-3509-4E9F-A695-E32722F77DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53530104-3509-4E9F-A695-E32722F77DE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15035C96-F74E-42EE-97FE-F2079065C268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15035C96-F74E-42EE-97FE-F2079065C268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15035C96-F74E-42EE-97FE-F2079065C268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15035C96-F74E-42EE-97FE-F2079065C268}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
